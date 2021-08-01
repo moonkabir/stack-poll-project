@@ -42,3 +42,4 @@ const polls = [
         opinions: [],
     },
 ];
+export default polls;
