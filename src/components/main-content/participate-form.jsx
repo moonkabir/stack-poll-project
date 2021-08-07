@@ -18,7 +18,7 @@ class ParticipationForm extends React.Component {
         const { errors, isValid } = this.validate();
 
         if(isValid){
-            this.props.getOptions({
+            this.props.getOpinion({
                 pollId: this.props.poll.id,
                 name: this.state.name,
                 selectedOption: this.state.selectedOption

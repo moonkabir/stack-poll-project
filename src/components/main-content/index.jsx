@@ -21,15 +21,15 @@ class MainContent extends React.Component {
                 </div>
             );
         }
-        const{ poll, getOption, updatedPoll, deletePoll } = this.props
+        const{ poll, getOpinion, updatedPoll, deletePoll } = this.props
         return (
             <div>
                 <h3>{poll.title}</h3>
-                <p>{poll.Description}</p>
+                <p>{poll.description}</p>
                 <br />
                 <ParticipationForm 
                     poll={poll}
-                    getOption = {getOption}
+                    getOpinion = {getOpinion}
                     toggleModal = {this.toggleModal}
                     deletePoll = {deletePoll}
                 />
