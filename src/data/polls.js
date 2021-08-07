@@ -1,7 +1,7 @@
 const polls = [
     {
         id: '1234',
-        title: 'What is Your Favourie Prgramming Language',
+        title: 'What is Your Favourie Prgramming Language1',
         Description: 'There are lot of Popular Programming Language avaiablle.Among them what is your Favourite?',
         options: [
             {id: '12345', value: 'C Programming', vote: 0},
@@ -15,7 +15,7 @@ const polls = [
     },
     {
         id: '1233',
-        title: 'What is Your Favourie Prgramming Language',
+        title: 'What is Your Favourie Prgramming Language2',
         Description: 'There are lot of Popular Programming Language avaiablle.Among them what is your Favourite?',
         options: [
             {id: '123451', value: 'C Programming', vote: 0},
@@ -29,7 +29,7 @@ const polls = [
     },
     {
         id: '1232',
-        title: 'What is Your Favourie Prgramming Language',
+        title: 'What is Your Favourie Prgramming Language3',
         Description: 'There are lot of Popular Programming Language avaiablle.Among them what is your Favourite?',
         options: [
             {id: '123452', value: 'C Programming', vote: 0},

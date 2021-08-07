@@ -9,7 +9,7 @@ class App extends React.Component {
 
     state={
         polls: [],
-        selectedpoll: {},
+        selectedPoll: {},
         searchTerm: '',
     }
 
@@ -42,12 +42,29 @@ class App extends React.Component {
 
     deletePoll = pollId => {
         const polls = this.state.polls.filter(p=> p.id !== pollId);
-        this.setState({polls, selectedpoll: {} });
+        this.setState({polls, selectedPoll: {} });
     };
 
     selectPoll = pollId => {
         const poll = this.state.polls.find(p=> p.id === pollId);
-        this.setState({selectPoll: poll });
+        this.setState({selectedPoll: poll });
+    };
+
+    getOpinion = response => {
+        const{ polls } = this.state;
+        const poll = polls.find(p => p.id === response.pollId);
+        const option = poll.opinions.find(o=> o.id === response.selectedOption)
+
+        poll.totalVote++;
+        option.vote++;
+        const opinion = {
+            id:shortid.generate(),
+            name: response.name,
+            selectedOption: response.selectedOption
+        };
+
+        poll.opinions.push(opinion);
+        this.setState({ polls });
     };
 
     handleSearch = searchTerm => {};
@@ -62,10 +79,16 @@ class App extends React.Component {
                             searchTerm = {this.state.searchTerm}
                             handleSearch={this.handleSearch}
                             selectPoll = {this.selectPoll}
+                            addNewPoll = { this.addNewPoll }
                         />
                     </Col>
                     <Col md={8}>
-                        <MainContent />
+                        <MainContent 
+                            poll = {this.state.selectedPoll}
+                            getOpinion = {this.getOpinion}
+                            uodatePoll = {this.updatePoll}
+                            deletePoll = {this.deletePoll}
+                        />
                     </Col>
                 </Row>
             </Container>
