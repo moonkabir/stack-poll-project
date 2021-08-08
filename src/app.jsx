@@ -67,15 +67,26 @@ class App extends React.Component {
         this.setState({ polls });
     };
 
-    handleSearch = searchTerm => {};
+    handleSearch = searchTerm => {
+        this.setState({
+            searchTerm
+        })
+    };
+
+    performSearch = () => {
+        return this.state.polls.filter(
+            poll => poll.title.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+        );
+    };
 
     render() {
+        const polls = this.performSearch();
         return (
             <Container>
                 <Row>
                     <Col md={4}>
                         <Sidebar 
-                            polls={this.state.polls}
+                            polls={polls}
                             searchTerm = {this.state.searchTerm}
                             handleSearch={this.handleSearch}
                             selectPoll = {this.selectPoll}

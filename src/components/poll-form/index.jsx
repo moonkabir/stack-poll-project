@@ -72,13 +72,12 @@ class PollForm extends React.Component {
                 description,
                 options
             };
-
             if(this.props.isUpdate){
                 poll.id = this.props.poll.id;
                 this.props.submit(poll);
                 alert('Updated successfully');
             }else{
-                this.props.submit();
+                this.props.submit(poll);
                 event.target.reset();
                 this.setState({
                     title: "",
